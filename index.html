@@ -1,6 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FTHLABZ | Enterprise Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Kurumsal Stil Ayarları */
+        body { 
+            background-color: #0f172a; 
+            color: #f8fafc; 
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .bg-grid {
+            background-image: linear-gradient(to right, #1e293b 1px, transparent 1px),
+                              linear-gradient(to bottom, #1e293b 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.1;
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+        }
+
+        .enterprise-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .fade-in { animation: fadeIn 1.2s ease-out forwards; opacity: 0; transform: translateY(20px); }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.5s; }
+        .delay-3 { animation-delay: 0.8s; }
+
+        @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen items-center justify-center p-8 relative">
+
+    <div class="bg-grid"></div>
+
+    <div class="text-center mb-12 fade-in">
+        <div class="inline-flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-blue-600 rounded flex items-center justify-center shadow-lg shadow-blue-900/50">
+                <i class="fa-solid fa-cube text-white text-xl"></i>
+            </div>
+            <span class="text-2xl font-bold tracking-tight text-white">FTHLABZ</span>
+        </div>
+        <p class="text-slate-400 text-xs font-semibold tracking-[0.3em] uppercase">Enterprise Software Architecture</p>
+    </div>
+
     <div class="w-full max-w-lg enterprise-card rounded-lg p-8 mb-12 fade-in delay-1 border-l-4 border-l-emerald-500 shadow-2xl relative overflow-hidden group">
         
-        <div class="absolute top-0 right-0 p-4 opacity-10 font-mono text-[10px] text-emerald-500 pointer-events-none">
+        <div class="absolute top-0 right-0 p-4 opacity-10 font-mono text-[10px] text-emerald-500 pointer-events-none select-none">
             01001011 01010100<br>
             SYNC_NODE_START<br>
             HASH_VERIFIED
@@ -34,3 +91,53 @@
             </div>
         </div>
     </div>
+
+    <div class="max-w-2xl text-center space-y-6 fade-in delay-2 mb-16">
+        <h1 class="text-3xl md:text-4xl font-extrabold text-white leading-tight">
+            Görünmeyeni İnşa Ediyoruz.
+        </h1>
+        <p class="text-slate-400 leading-relaxed text-sm md:text-base font-light">
+            Karmaşık operasyonel süreçlerinizi analiz ediyor, verimsizliği ortadan kaldırıyor ve işletmenize özel 
+            <strong class="text-blue-400">Serverless Mimari</strong> çözümleri üretiyoruz. 
+        </p>
+        <p class="text-slate-400 leading-relaxed text-sm md:text-base font-light">
+            Bizim için yazılım, sadece kod satırlarından ibaret değildir. 
+            Bir disiplin, stratejik bir hamle ve kusursuz işleyen bir mekanizmadır. 
+        </p>
+    </div>
+
+    <div class="w-full max-w-md grid gap-4 fade-in delay-3">
+        <a href="https://wa.me/905XXXXXXXXXX" target="_blank" class="group bg-blue-600 hover:bg-blue-700 text-white py-4 rounded transition-all flex items-center justify-center gap-3 shadow-lg shadow-blue-900/30">
+            <i class="fa-brands fa-whatsapp text-xl"></i>
+            <span class="font-semibold text-sm tracking-wide">PROJE DANIŞMANLIĞI</span>
+        </a>
+
+        <a href="mailto:fthlabz@hotmail.com" class="group bg-transparent border border-slate-600 hover:border-white text-slate-300 hover:text-white py-4 rounded transition-all flex items-center justify-center gap-3">
+            <i class="fa-regular fa-envelope text-lg"></i>
+            <span class="font-semibold text-sm tracking-wide">KURUMSAL İLETİŞİM</span>
+        </a>
+    </div>
+
+    <footer class="mt-20 border-t border-slate-800 pt-8 w-full text-center fade-in delay-3">
+        <p class="text-slate-600 text-[10px] uppercase tracking-widest">
+            &copy; 2026 FTHLABZ Technology Solutions. Tüm Hakları Saklıdır.
+        </p>
+    </footer>
+
+    <script>
+        // URL Parametre Kontrolü
+        const params = new URLSearchParams(window.location.search);
+        let id = params.get('id');
+        const idBox = document.getElementById('product-id');
+
+        if(id) {
+            // Link temizliği
+            if(id.includes("id=")) id = id.split("id=")[1];
+            idBox.innerText = id;
+        } else {
+            idBox.innerText = "REF-GEN-001"; 
+            idBox.classList.add("text-slate-500");
+        }
+    </script>
+</body>
+</html>
